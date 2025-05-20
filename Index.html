@@ -1,0 +1,71 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Label } from "@/components/ui/label";
+
+export default function BankAppMockup() {
+  return (
+    <div className="min-h-screen bg-gray-100 p-4 flex flex-col items-center">
+      <h1 className="text-3xl font-bold mb-6">MyPay - Digital Bank</h1>
+      <Tabs defaultValue="dashboard" className="w-full max-w-xl">
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
+          <TabsTrigger value="transfer">Transfer</TabsTrigger>
+          <TabsTrigger value="account">Account</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="dashboard">
+          <Card>
+            <CardContent className="p-4">
+              <h2 className="text-xl font-semibold mb-2">Balance</h2>
+              <p className="text-3xl font-bold text-green-600">$1,250.00</p>
+              <div className="mt-4">
+                <h3 className="font-semibold">Recent Transactions</h3>
+                <ul className="text-sm mt-2 space-y-1">
+                  <li>+ $200.00 - Deposit</li>
+                  <li>- $50.00 - Payment</li>
+                  <li>- $20.00 - Transfer</li>
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="transfer">
+          <Card>
+            <CardContent className="p-4 space-y-4">
+              <h2 className="text-xl font-semibold">Transfer Funds</h2>
+              <div>
+                <Label>Recipient Email</Label>
+                <Input type="email" placeholder="example@email.com" />
+              </div>
+              <div>
+                <Label>Amount</Label>
+                <Input type="number" placeholder="$0.00" />
+              </div>
+              <Button className="w-full">Send Money</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="account">
+          <Card>
+            <CardContent className="p-4 space-y-4">
+              <h2 className="text-xl font-semibold">Account Settings</h2>
+              <div>
+                <Label>Full Name</Label>
+                <Input type="text" placeholder="John Doe" />
+              </div>
+              <div>
+                <Label>Password</Label>
+                <Input type="password" placeholder="********" />
+              </div>
+              <Button className="w-full">Update Settings</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}
